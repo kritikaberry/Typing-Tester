@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Typing Tester</title>
+
+	<!-- bootstrap links -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- css file -->
+	<link rel="stylesheet" href="test.css">
+
+
+</head>
+<body>
+	<div class="container">
+	<section>
+		<nav class="navbar">
+  		<div class="container-fluid">
+  		<ul class="nav navbar-nav">
+  		</ul>
+    	<ul class="nav navbar-nav navbar-right">
+      	<li><a href="#">Source Code</a></li>
+    	</ul>
+  		</div>
+		</nav>
+	</section>
+	<section>
+		<button type="button" onClick="document.getElementById('howto').style.display='block';">How to Do?</button>
+		<div id='howto' style="display:none;">
+			<ol type='1'>
+				<li>Choose your difficulty level.</li>
+				<li>Choose the type of text (words/lines).</li>
+				<li>Type and check your accuracy, wpm and cpm!</li>
+			</ol>
+			<button type="button" onClick="document.getElementById('howto').style.display='none';">Close</button>
+		</div>
+	</section>
+	<section>
+		<form id="mode" style="display:block;">
+		<h3>Choose the mode of Difficulty:</h3>
+		<input type="radio" id="easy" name="diffmode" value="easy">
+  		<label for="easy">Easy</label><br>
+  		<input type="radio" id="med" name="diffmode" value="med">
+  		<label for="med">Medium</label><br>
+  		<input type="radio" id="diff" name="diffmode" value="diff">
+  		<label for="diff">Difficult</label>
+  		<br>
+		<h3>Choose the mode of Text:</h3>
+		<input type="radio" id="wrd" name="textmode" value="wrd">
+  		<label for="wrd">Words</label><br>
+  		<input type="radio" id="wrd" name="textmode" value="line">
+  		<label for="wrd">Line</label><br>
+		<input type="button" onClick="getRadioValue()" value="Submit">
+		</form>
+	</section>
+	<section id="maintestbox" style="display:none;">
+		<div class="testheader">
+			<div class="timer">
+				<div class="header_text">Time</div>
+				<div class="curr_time">60s</div>
+			</div>
+			<div class="wpm">
+				<div class="header_text">WPM</div>
+				<div class="curr_wpm">100</div>
+			</div>
+			<div class="cpm">
+				<div class="header_text">CPM</div>
+				<div class="curr_cpm">100</div>
+			</div>
+			<div class="errors">
+				<div class="header_text">Errors</div>
+				<div class="curr_errors">0</div>
+			</div>
+			<div class="accuCannot read property 'value' of nullracy">
+				<div class="header_text">Accuracy (%)</div>
+				<div class="curr_accuracy">100</div>
+			</div>
+		</div>
+		<div class="quote">
+			<h3>Press start and type!</h3>
+			<form>
+				<button type="button" onClick="checkQuote(); timing;">Start</button>
+			</form>
+			<div id="quote_text">
+			</div>
+			<textarea class="inputarea" placeholder="Type here" oninput="checkUserInput();" onfocus="timing();"></textarea>
+			<button type="button">Reset</button>
+		</div>
+	</section>
+	</div>
+	<script src="test.js">
+	</script>
+</body>
+</html>
