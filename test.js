@@ -112,13 +112,13 @@ function timing()
 				if (timeElapsed==0)
 				{
 					clearInterval(countdown);
-					input_area.value="Press reset to continue typing.";
+					//input_area.value="Press reset to continue typing.";
+					input_area.disabled=true;
 				}
 			},1000);
 }
 function checkUserInput()
 		{
-
 				var curr_input=input_area.value;
 				var input_arr=curr_input.split('');
 				charsTyped++;
@@ -152,8 +152,9 @@ function checkUserInput()
     			}
   				});
 
-  				errorText.textContent=total_errors+errors;
-  				var correct_Char = (charsTyped - (total_errors + errors));
+  				errorText.textContent=errors;
+  				console.log(errors);
+  				var correct_Char = (charsTyped - (errors));
   				var accuval= ((correct_Char / charsTyped) * 100);
   				accuracyText.textContent = Math.round(accuval);
 
@@ -161,7 +162,7 @@ function checkUserInput()
   				{
 					//input_area.disabled=true;
 					input_area.textContent="Press reset to continue typing.";
-					clearInterval(countdown);
+					
 					input_area.disabled=true;
   				}
   			
